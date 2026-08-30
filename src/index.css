@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  color: var(--color-dark-text);
+}
+@theme {
+  --color-cream: #f7f1e5;
+  --color-rust: #b5583a;
+  --color-warmbrown: #8b5e3c;
+
+  --color-dark-bg: #050404;
+  --color-dark-text: #e8dcd3;
+  --color-dark-accent: #5b1022;
+  --color-dark-label: #b39a94;
+}
