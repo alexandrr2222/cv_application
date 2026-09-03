@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { FormPanel } from "./FormPanel";
 import { PrintedCV } from "./PrintedCV";
-import type { GeneralInfoCategory, TechSkillsCategory } from "./types";
+import type {
+  GeneralInfoCategory,
+  TechSkillsCategory,
+  ProjectsCategory,
+  ExperienceCategory,
+  EducationCategory,
+  LanguagesCategory,
+} from "./types";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState<GeneralInfoCategory>({
@@ -14,6 +21,10 @@ function App() {
   const [technicalSkills, setTechnicalSkills] = useState<
     Array<TechSkillsCategory>
   >([]);
+  const [projects, setProjects] = useState<Array<ProjectsCategory>>([]);
+  const [experience, setExperience] = useState<Array<ExperienceCategory>>([]);
+  const [education, setEducation] = useState<Array<EducationCategory>>([]);
+  const [languages, setLanguages] = useState<Array<LanguagesCategory>>([]);
   return (
     <main className="flex p-4.5 bg-dark-bg min-h-dvh">
       <FormPanel
@@ -21,9 +32,15 @@ function App() {
         setGeneralInfo={setGeneralInfo}
         technicalSkills={technicalSkills}
         setTechnicalSkills={setTechnicalSkills}
+        projects={projects}
+        setProjects={setProjects}
+        experience={experience}
+        setExperience={setExperience}
+        education={education}
+        setEducation={setEducation}
+        languages={languages}
+        setLanguages={setLanguages}
       />
-      <pre>{JSON.stringify(generalInfo)}</pre>
-      <pre>{JSON.stringify(technicalSkills)}</pre>
       <PrintedCV />
     </main>
   );

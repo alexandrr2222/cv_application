@@ -1,5 +1,9 @@
 import { GeneralInfo } from "./formPanelComponents/GeneralInfo";
 import { TechnicalSkills } from "./formPanelComponents/TechnicalSkills";
+import { Projects } from "./formPanelComponents/Projects";
+import { Experience } from "./formPanelComponents/Experience";
+import { Education } from "./formPanelComponents/Education";
+import { Languages } from "./formPanelComponents/Languages";
 import type { stateProps } from "./types";
 
 export function FormPanel({
@@ -7,6 +11,14 @@ export function FormPanel({
   setGeneralInfo,
   technicalSkills,
   setTechnicalSkills,
+  projects,
+  setProjects,
+  experience,
+  setExperience,
+  education,
+  setEducation,
+  languages,
+  setLanguages,
 }: stateProps) {
   return (
     <div className="flex flex-col">
@@ -16,10 +28,10 @@ export function FormPanel({
         technicalSkills={technicalSkills}
         setTechnicalSkills={setTechnicalSkills}
       />
-      {/* <Experience />
-      <Projects />
-      <Education />
-      <Languages /> */}
+      <Projects projects={projects} setProjects={setProjects} />
+      <Experience experience={experience} setExperience={setExperience} />
+      <Education education={education} setEducation={setEducation} />
+      <Languages languages={languages} setLanguages={setLanguages} />
     </div>
   );
 }

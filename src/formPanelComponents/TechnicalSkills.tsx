@@ -1,6 +1,6 @@
 import type { TechSkillsProps } from "../types";
 import { FormSection } from "./formComponents/FormSection";
-import { AddSkill } from "./formComponents/AddSkill";
+import { AddButton } from "./formComponents/AddButton";
 import { SkillSection } from "./formComponents/SkillSection";
 
 export function TechnicalSkills({
@@ -9,7 +9,15 @@ export function TechnicalSkills({
 }: TechSkillsProps) {
   return (
     <FormSection title={"Technical Skills"}>
-      <AddSkill setTechnicalSkills={setTechnicalSkills} />
+      <AddButton
+        label="Add new skillset"
+        onAdd={() =>
+          setTechnicalSkills((prev) => [
+            ...prev,
+            { id: crypto.randomUUID(), title: "", skills: "" },
+          ])
+        }
+      />
       <SkillSection
         technicalSkills={technicalSkills}
         setTechnicalSkills={setTechnicalSkills}
