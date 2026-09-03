@@ -4,7 +4,7 @@ import { Projects } from "./formPanelComponents/Projects";
 import { Experience } from "./formPanelComponents/Experience";
 import { Education } from "./formPanelComponents/Education";
 import { Languages } from "./formPanelComponents/Languages";
-import type { stateProps } from "./types";
+import type { StateProps } from "./types";
 
 export function FormPanel({
   generalInfo,
@@ -19,7 +19,7 @@ export function FormPanel({
   setEducation,
   languages,
   setLanguages,
-}: stateProps) {
+}: StateProps) {
   return (
     <div className="flex flex-col">
       <h1 className="text-dark-accent">Simple CV Creator</h1>

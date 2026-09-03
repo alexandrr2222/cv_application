@@ -61,7 +61,7 @@ export type LangugagesProps = {
   setLanguages: Setter<LanguagesCategory[]>;
 };
 
-export type stateProps = GeneralInfoProps &
+export type StateProps = GeneralInfoProps &
   TechSkillsProps &
   ProjectsProps &
   ExperienceProps &

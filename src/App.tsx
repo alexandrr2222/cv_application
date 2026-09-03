@@ -41,7 +41,14 @@ function App() {
         languages={languages}
         setLanguages={setLanguages}
       />
-      <PrintedCV />
+      <PrintedCV
+        generalInfo={generalInfo}
+        technicalSkills={technicalSkills}
+        projects={projects}
+        experience={experience}
+        education={education}
+        languages={languages}
+      />
     </main>
   );
 }
