@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FormPanel } from "./FormPanel";
 import { PrintedCV } from "./PrintedCV";
 import type {
@@ -8,47 +7,60 @@ import type {
   ExperienceCategory,
   EducationCategory,
   LanguagesCategory,
+  cvDataType,
 } from "./types";
+import { usePersistedState } from "./usePersistedState";
 
 function App() {
-  const [generalInfo, setGeneralInfo] = useState<GeneralInfoCategory>({
-    name: "",
-    email: "",
-    phone: "",
-    website: "",
-    summary: "",
-  });
-  const [technicalSkills, setTechnicalSkills] = useState<
+  const [generalInfo, setGeneralInfo] = usePersistedState<GeneralInfoCategory>(
+    "generalInfo",
+    {
+      name: "",
+      email: "",
+      phone: "",
+      website: "",
+      summary: "",
+    },
+  );
+  const [technicalSkills, setTechnicalSkills] = usePersistedState<
     Array<TechSkillsCategory>
-  >([]);
-  const [projects, setProjects] = useState<Array<ProjectsCategory>>([]);
-  const [experience, setExperience] = useState<Array<ExperienceCategory>>([]);
-  const [education, setEducation] = useState<Array<EducationCategory>>([]);
-  const [languages, setLanguages] = useState<Array<LanguagesCategory>>([]);
+  >("technicalSkills", []);
+  const [projects, setProjects] = usePersistedState<Array<ProjectsCategory>>(
+    "projects",
+    [],
+  );
+  const [experience, setExperience] = usePersistedState<
+    Array<ExperienceCategory>
+  >("experience", []);
+  const [education, setEducation] = usePersistedState<Array<EducationCategory>>(
+    "education",
+    [],
+  );
+  const [languages, setLanguages] = usePersistedState<Array<LanguagesCategory>>(
+    "languages",
+    [],
+  );
+  const cvData: cvDataType = {
+    generalInfo,
+    technicalSkills,
+    projects,
+    experience,
+    education,
+    languages,
+  };
+
   return (
     <main className="flex p-4.5 bg-dark-bg min-h-dvh">
       <FormPanel
-        generalInfo={generalInfo}
+        cvData={cvData}
         setGeneralInfo={setGeneralInfo}
-        technicalSkills={technicalSkills}
         setTechnicalSkills={setTechnicalSkills}
-        projects={projects}
         setProjects={setProjects}
-        experience={experience}
         setExperience={setExperience}
-        education={education}
         setEducation={setEducation}
-        languages={languages}
         setLanguages={setLanguages}
       />
-      <PrintedCV
-        generalInfo={generalInfo}
-        technicalSkills={technicalSkills}
-        projects={projects}
-        experience={experience}
-        education={education}
-        languages={languages}
-      />
+      <PrintedCV cvData={cvData} />
     </main>
   );
 }

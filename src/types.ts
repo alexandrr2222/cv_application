@@ -35,6 +35,14 @@ export type LanguagesCategory = {
   title: string;
   description: string;
 };
+export type cvDataType = {
+  generalInfo: GeneralInfoCategory;
+  technicalSkills: Array<TechSkillsCategory>;
+  projects: Array<ProjectsCategory>;
+  experience: Array<ExperienceCategory>;
+  education: Array<EducationCategory>;
+  languages: Array<LanguagesCategory>;
+};
 
 export type GeneralInfoProps = {
   generalInfo: GeneralInfoCategory;
@@ -61,9 +69,12 @@ export type LangugagesProps = {
   setLanguages: Setter<LanguagesCategory[]>;
 };
 
-export type StateProps = GeneralInfoProps &
-  TechSkillsProps &
-  ProjectsProps &
-  ExperienceProps &
-  EducationProps &
-  LangugagesProps;
+export type StateProps = {
+  cvData: cvDataType;
+  setGeneralInfo: Setter<GeneralInfoCategory>;
+  setTechnicalSkills: Setter<TechSkillsCategory[]>;
+  setProjects: Setter<ProjectsCategory[]>;
+  setExperience: Setter<ExperienceCategory[]>;
+  setEducation: Setter<EducationCategory[]>;
+  setLanguages: Setter<LanguagesCategory[]>;
+};

@@ -7,31 +7,32 @@ import { Languages } from "./formPanelComponents/Languages";
 import type { StateProps } from "./types";
 
 export function FormPanel({
-  generalInfo,
+  cvData,
   setGeneralInfo,
-  technicalSkills,
   setTechnicalSkills,
-  projects,
   setProjects,
-  experience,
   setExperience,
-  education,
   setEducation,
-  languages,
   setLanguages,
 }: StateProps) {
   return (
     <div className="flex flex-col">
       <h1 className="text-dark-accent">Simple CV Creator</h1>
-      <GeneralInfo generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
+      <GeneralInfo
+        generalInfo={cvData.generalInfo}
+        setGeneralInfo={setGeneralInfo}
+      />
       <TechnicalSkills
-        technicalSkills={technicalSkills}
+        technicalSkills={cvData.technicalSkills}
         setTechnicalSkills={setTechnicalSkills}
       />
-      <Projects projects={projects} setProjects={setProjects} />
-      <Experience experience={experience} setExperience={setExperience} />
-      <Education education={education} setEducation={setEducation} />
-      <Languages languages={languages} setLanguages={setLanguages} />
+      <Projects projects={cvData.projects} setProjects={setProjects} />
+      <Experience
+        experience={cvData.experience}
+        setExperience={setExperience}
+      />
+      <Education education={cvData.education} setEducation={setEducation} />
+      <Languages languages={cvData.languages} setLanguages={setLanguages} />
     </div>
   );
 }
