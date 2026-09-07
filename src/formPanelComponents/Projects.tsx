@@ -1,16 +1,22 @@
-import type { ProjectsProps } from "../types";
+import type { ProjectsCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
 import { AddButton } from "./formComponents/AddButton";
 import { ProjectSection } from "./formComponents/ProjectSection";
 
-export function Projects({ projects, setProjects }: ProjectsProps) {
+export function Projects({
+  projects,
+  updateSection,
+}: {
+  projects: ProjectsCategory[];
+  updateSection: (key: "projects", value: ProjectsCategory[]) => void;
+}) {
   return (
     <FormSection title={"Projects"}>
       <AddButton
         label="Add new project"
         onAdd={() =>
-          setProjects((prev) => [
-            ...prev,
+          updateSection("projects", [
+            ...projects,
             {
               id: crypto.randomUUID(),
               title: "",
@@ -20,7 +26,10 @@ export function Projects({ projects, setProjects }: ProjectsProps) {
           ])
         }
       />
-      <ProjectSection projects={projects} setProjects={setProjects} />
+      <ProjectSection
+        projects={projects}
+        onChange={(upd) => updateSection("projects", upd)}
+      />
     </FormSection>
   );
 }

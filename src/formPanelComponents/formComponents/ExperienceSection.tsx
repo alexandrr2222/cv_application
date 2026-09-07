@@ -1,12 +1,15 @@
 import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
-import type { ExperienceProps } from "../../types";
+import type { ExperienceCategory } from "../../types";
 import { RemoveButton } from "./RemoveButton";
 
 export function ExperienceSection({
   experience,
-  setExperience,
-}: ExperienceProps) {
+  onChange,
+}: {
+  experience: ExperienceCategory[];
+  onChange: (upd: ExperienceCategory[]) => void;
+}) {
   return (
     <>
       {experience.map((pr) => (
@@ -17,8 +20,8 @@ export function ExperienceSection({
             type="text"
             value={pr.title}
             onChange={(e) => {
-              setExperience((prev) =>
-                prev.map((ar) => {
+              onChange(
+                experience.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, title: e.target.value };
                   } else return ar;
@@ -33,8 +36,8 @@ export function ExperienceSection({
             type="text"
             value={pr.companyName}
             onChange={(e) => {
-              setExperience((prev) =>
-                prev.map((ar) => {
+              onChange(
+                experience.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, companyName: e.target.value };
                   } else return ar;
@@ -49,8 +52,8 @@ export function ExperienceSection({
             type="text"
             value={pr.date}
             onChange={(e) => {
-              setExperience((prev) =>
-                prev.map((ar) => {
+              onChange(
+                experience.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, date: e.target.value };
                   } else return ar;
@@ -64,8 +67,8 @@ export function ExperienceSection({
             label="Description"
             value={pr.description}
             onChange={(e) => {
-              setExperience((prev) =>
-                prev.map((ar) => {
+              onChange(
+                experience.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, description: e.target.value };
                   } else return ar;
@@ -77,7 +80,7 @@ export function ExperienceSection({
           <RemoveButton
             label="Remove work experience"
             onRemove={() => {
-              setExperience((prev) => prev.filter((ar) => ar.id !== pr.id));
+              onChange(experience.filter((ar) => ar.id !== pr.id));
             }}
           />
         </div>

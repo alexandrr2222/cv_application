@@ -1,11 +1,14 @@
 import { FormInput } from "./FormInput";
-import type { TechSkillsProps } from "../../types";
+import type { TechSkillsCategory } from "../../types";
 import { RemoveButton } from "./RemoveButton";
 
 export function SkillSection({
   technicalSkills,
-  setTechnicalSkills,
-}: TechSkillsProps) {
+  onChange,
+}: {
+  technicalSkills: TechSkillsCategory[];
+  onChange: (upd: TechSkillsCategory[]) => void;
+}) {
   return (
     <>
       {technicalSkills.map((techSkill) => (
@@ -16,8 +19,8 @@ export function SkillSection({
             type="text"
             value={techSkill.title}
             onChange={(e) => {
-              setTechnicalSkills((prev) =>
-                prev.map((skill) => {
+              onChange(
+                technicalSkills.map((skill) => {
                   if (skill.id === techSkill.id) {
                     return { ...skill, title: e.target.value };
                   } else return skill;
@@ -32,8 +35,8 @@ export function SkillSection({
             type="text"
             value={techSkill.skills}
             onChange={(e) => {
-              setTechnicalSkills((prev) =>
-                prev.map((skill) => {
+              onChange(
+                technicalSkills.map((skill) => {
                   if (skill.id === techSkill.id) {
                     return { ...skill, skills: e.target.value };
                   } else return skill;
@@ -45,8 +48,8 @@ export function SkillSection({
           <RemoveButton
             label="Remove skillset"
             onRemove={() => {
-              setTechnicalSkills((prev) =>
-                prev.filter((skill) => skill.id !== techSkill.id),
+              onChange(
+                technicalSkills.filter((skill) => skill.id !== techSkill.id),
               );
             }}
           />

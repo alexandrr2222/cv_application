@@ -1,9 +1,15 @@
 import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
-import type { ProjectsProps } from "../../types";
+import type { ProjectsCategory } from "../../types";
 import { RemoveButton } from "./RemoveButton";
 
-export function ProjectSection({ projects, setProjects }: ProjectsProps) {
+export function ProjectSection({
+  projects,
+  onChange,
+}: {
+  projects: ProjectsCategory[];
+  onChange: (upd: ProjectsCategory[]) => void;
+}) {
   return (
     <>
       {projects.map((pr) => (
@@ -14,8 +20,8 @@ export function ProjectSection({ projects, setProjects }: ProjectsProps) {
             type="text"
             value={pr.title}
             onChange={(e) => {
-              setProjects((prev) =>
-                prev.map((ar) => {
+              onChange(
+                projects.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, title: e.target.value };
                   } else return ar;
@@ -30,8 +36,8 @@ export function ProjectSection({ projects, setProjects }: ProjectsProps) {
             type="url"
             value={pr.link}
             onChange={(e) => {
-              setProjects((prev) =>
-                prev.map((ar) => {
+              onChange(
+                projects.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, link: e.target.value };
                   } else return ar;
@@ -45,8 +51,8 @@ export function ProjectSection({ projects, setProjects }: ProjectsProps) {
             label="Description"
             value={pr.description}
             onChange={(e) => {
-              setProjects((prev) =>
-                prev.map((ar) => {
+              onChange(
+                projects.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, description: e.target.value };
                   } else return ar;
@@ -58,7 +64,7 @@ export function ProjectSection({ projects, setProjects }: ProjectsProps) {
           <RemoveButton
             label="Remove project"
             onRemove={() => {
-              setProjects((prev) => prev.filter((ar) => ar.id !== pr.id));
+              onChange(projects.filter((ar) => ar.id !== pr.id));
             }}
           />
         </div>

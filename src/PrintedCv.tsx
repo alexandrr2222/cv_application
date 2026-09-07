@@ -1,6 +1,6 @@
 import type { cvDataType } from "./types";
 
-export function PrintedCV({ cvData }: { cvData: cvDataType }) {
+export function PrintedCv({ cvData }: { cvData: cvDataType }) {
   return (
     <div>
       <section>

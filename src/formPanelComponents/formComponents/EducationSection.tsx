@@ -1,8 +1,14 @@
 import { FormInput } from "./FormInput";
-import type { EducationProps } from "../../types";
+import type { EducationCategory } from "../../types";
 import { RemoveButton } from "./RemoveButton";
 
-export function EducationSection({ education, setEducation }: EducationProps) {
+export function EducationSection({
+  education,
+  onChange,
+}: {
+  education: EducationCategory[];
+  onChange: (upd: EducationCategory[]) => void;
+}) {
   return (
     <>
       {education.map((pr) => (
@@ -13,8 +19,8 @@ export function EducationSection({ education, setEducation }: EducationProps) {
             type="text"
             value={pr.title}
             onChange={(e) => {
-              setEducation((prev) =>
-                prev.map((ar) => {
+              onChange(
+                education.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, title: e.target.value };
                   } else return ar;
@@ -29,8 +35,8 @@ export function EducationSection({ education, setEducation }: EducationProps) {
             type="text"
             value={pr.description}
             onChange={(e) => {
-              setEducation((prev) =>
-                prev.map((ar) => {
+              onChange(
+                education.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, description: e.target.value };
                   } else return ar;
@@ -42,7 +48,7 @@ export function EducationSection({ education, setEducation }: EducationProps) {
           <RemoveButton
             label="Remove education"
             onRemove={() => {
-              setEducation((prev) => prev.filter((ar) => ar.id !== pr.id));
+              onChange(education.filter((ar) => ar.id !== pr.id));
             }}
           />
         </div>

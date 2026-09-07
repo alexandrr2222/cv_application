@@ -1,13 +1,19 @@
 import { FormSection } from "./formComponents/FormSection";
 import { FormInput } from "./formComponents/FormInput";
 import { FormTextArea } from "./formComponents/FormTextArea";
-import type { GeneralInfoCategory, GeneralInfoProps } from "../types";
+import type { GeneralInfoCategory } from "../types";
 import type { ChangeEvent } from "react";
 
-export function GeneralInfo({ generalInfo, setGeneralInfo }: GeneralInfoProps) {
+export function GeneralInfo({
+  generalInfo,
+  updateSection,
+}: {
+  generalInfo: GeneralInfoCategory;
+  updateSection: (key: "generalInfo", value: GeneralInfoCategory) => void;
+}) {
   function handleChange(key: keyof GeneralInfoCategory) {
     return (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setGeneralInfo((prev) => ({ ...prev, [key]: e.target.value }));
+      updateSection("generalInfo", { ...generalInfo, [key]: e.target.value });
   }
   return (
     <FormSection title={"General Info"}>

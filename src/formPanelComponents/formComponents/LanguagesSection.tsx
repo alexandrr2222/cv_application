@@ -1,8 +1,14 @@
 import { FormInput } from "./FormInput";
-import type { LangugagesProps } from "../../types";
+import type { LanguagesCategory } from "../../types";
 import { RemoveButton } from "./RemoveButton";
 
-export function LanguagesSection({ languages, setLanguages }: LangugagesProps) {
+export function LanguagesSection({
+  languages,
+  onChange,
+}: {
+  languages: LanguagesCategory[];
+  onChange: (upd: LanguagesCategory[]) => void;
+}) {
   return (
     <>
       {languages.map((pr) => (
@@ -13,8 +19,8 @@ export function LanguagesSection({ languages, setLanguages }: LangugagesProps) {
             type="text"
             value={pr.title}
             onChange={(e) => {
-              setLanguages((prev) =>
-                prev.map((ar) => {
+              onChange(
+                languages.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, title: e.target.value };
                   } else return ar;
@@ -29,8 +35,8 @@ export function LanguagesSection({ languages, setLanguages }: LangugagesProps) {
             type="text"
             value={pr.description}
             onChange={(e) => {
-              setLanguages((prev) =>
-                prev.map((ar) => {
+              onChange(
+                languages.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, description: e.target.value };
                   } else return ar;
@@ -42,7 +48,7 @@ export function LanguagesSection({ languages, setLanguages }: LangugagesProps) {
           <RemoveButton
             label="Remove language"
             onRemove={() => {
-              setLanguages((prev) => prev.filter((ar) => ar.id !== pr.id));
+              onChange(languages.filter((ar) => ar.id !== pr.id));
             }}
           />
         </div>

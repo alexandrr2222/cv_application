@@ -4,35 +4,35 @@ import { Projects } from "./formPanelComponents/Projects";
 import { Experience } from "./formPanelComponents/Experience";
 import { Education } from "./formPanelComponents/Education";
 import { Languages } from "./formPanelComponents/Languages";
-import type { StateProps } from "./types";
+import type { cvDataType } from "./types";
 
-export function FormPanel({
-  cvData,
-  setGeneralInfo,
-  setTechnicalSkills,
-  setProjects,
-  setExperience,
-  setEducation,
-  setLanguages,
-}: StateProps) {
+type FormPanelProps = {
+  cvData: cvDataType;
+  updateSection: <K extends keyof cvDataType>(
+    key: K,
+    value: cvDataType[K],
+  ) => void;
+};
+
+export function FormPanel({ cvData, updateSection }: FormPanelProps) {
   return (
     <div className="flex flex-col">
       <h1 className="text-dark-accent">Simple CV Creator</h1>
       <GeneralInfo
         generalInfo={cvData.generalInfo}
-        setGeneralInfo={setGeneralInfo}
+        updateSection={updateSection}
       />
       <TechnicalSkills
         technicalSkills={cvData.technicalSkills}
-        setTechnicalSkills={setTechnicalSkills}
+        updateSection={updateSection}
       />
-      <Projects projects={cvData.projects} setProjects={setProjects} />
+      <Projects projects={cvData.projects} updateSection={updateSection} />
       <Experience
         experience={cvData.experience}
-        setExperience={setExperience}
+        updateSection={updateSection}
       />
-      <Education education={cvData.education} setEducation={setEducation} />
-      <Languages languages={cvData.languages} setLanguages={setLanguages} />
+      <Education education={cvData.education} updateSection={updateSection} />
+      <Languages languages={cvData.languages} updateSection={updateSection} />
     </div>
   );
 }
