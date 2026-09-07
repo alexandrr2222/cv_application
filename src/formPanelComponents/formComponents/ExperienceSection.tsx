@@ -1,7 +1,7 @@
 import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
 import type { ExperienceCategory } from "../../types";
-import { RemoveButton } from "./RemoveButton";
+import { ActionButton } from "../../ActionButton";
 
 export function ExperienceSection({
   experience,
@@ -77,9 +77,9 @@ export function ExperienceSection({
             }}
             autoComplete="off"
           />
-          <RemoveButton
+          <ActionButton
             label="Remove work experience"
-            onRemove={() => {
+            onAction={() => {
               onChange(experience.filter((ar) => ar.id !== pr.id));
             }}
           />

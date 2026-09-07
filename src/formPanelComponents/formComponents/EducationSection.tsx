@@ -1,6 +1,6 @@
 import { FormInput } from "./FormInput";
 import type { EducationCategory } from "../../types";
-import { RemoveButton } from "./RemoveButton";
+import { ActionButton } from "../../ActionButton";
 
 export function EducationSection({
   education,
@@ -45,9 +45,9 @@ export function EducationSection({
             }}
             placeholder="Economics and management, 2022 - 2025"
           />
-          <RemoveButton
+          <ActionButton
             label="Remove education"
-            onRemove={() => {
+            onAction={() => {
               onChange(education.filter((ar) => ar.id !== pr.id));
             }}
           />

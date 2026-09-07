@@ -13,3 +13,8 @@
   --color-dark-accent: #5b1022;
   --color-dark-label: #b39a94;
 }
+
+@page {
+  size: A4;
+  margin: 0;
+}

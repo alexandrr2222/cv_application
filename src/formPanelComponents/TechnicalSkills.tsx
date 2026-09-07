@@ -1,7 +1,7 @@
 import type { TechSkillsCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
-import { AddButton } from "./formComponents/AddButton";
 import { SkillSection } from "./formComponents/SkillSection";
+import { ActionButton } from "../ActionButton";
 
 export function TechnicalSkills({
   technicalSkills,
@@ -12,9 +12,9 @@ export function TechnicalSkills({
 }) {
   return (
     <FormSection title={"Technical Skills"}>
-      <AddButton
+      <ActionButton
         label="Add new skillset"
-        onAdd={() =>
+        onAction={() =>
           updateSection("technicalSkills", [
             ...technicalSkills,
             { id: crypto.randomUUID(), title: "", skills: "" },

@@ -4,15 +4,7 @@ import { Projects } from "./formPanelComponents/Projects";
 import { Experience } from "./formPanelComponents/Experience";
 import { Education } from "./formPanelComponents/Education";
 import { Languages } from "./formPanelComponents/Languages";
-import type { cvDataType } from "./types";
-
-type FormPanelProps = {
-  cvData: cvDataType;
-  updateSection: <K extends keyof cvDataType>(
-    key: K,
-    value: cvDataType[K],
-  ) => void;
-};
+import type { FormPanelProps } from "./types";
 
 export function FormPanel({ cvData, updateSection }: FormPanelProps) {
   return (

@@ -1,7 +1,7 @@
 import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
 import type { ProjectsCategory } from "../../types";
-import { RemoveButton } from "./RemoveButton";
+import { ActionButton } from "../../ActionButton";
 
 export function ProjectSection({
   projects,
@@ -61,9 +61,9 @@ export function ProjectSection({
             }}
             autoComplete="off"
           />
-          <RemoveButton
+          <ActionButton
             label="Remove project"
-            onRemove={() => {
+            onAction={() => {
               onChange(projects.filter((ar) => ar.id !== pr.id));
             }}
           />

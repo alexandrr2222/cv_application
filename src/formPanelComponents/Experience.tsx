@@ -1,7 +1,7 @@
 import type { ExperienceCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
-import { AddButton } from "./formComponents/AddButton";
 import { ExperienceSection } from "./formComponents/ExperienceSection";
+import { ActionButton } from "../ActionButton";
 
 export function Experience({
   experience,
@@ -12,9 +12,9 @@ export function Experience({
 }) {
   return (
     <FormSection title={"Work Experience"}>
-      <AddButton
+      <ActionButton
         label="Add new work experience"
-        onAdd={() =>
+        onAction={() =>
           updateSection("experience", [
             ...experience,
             {

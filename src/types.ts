@@ -1,5 +1,3 @@
-type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
-
 export type GeneralInfoCategory = {
   name: string;
   email: string;
@@ -43,38 +41,10 @@ export type cvDataType = {
   education: Array<EducationCategory>;
   languages: Array<LanguagesCategory>;
 };
-
-export type GeneralInfoProps = {
-  generalInfo: GeneralInfoCategory;
-  setGeneralInfo: Setter<GeneralInfoCategory>;
-};
-export type TechSkillsProps = {
-  technicalSkills: Array<TechSkillsCategory>;
-  setTechnicalSkills: Setter<TechSkillsCategory[]>;
-};
-export type ProjectsProps = {
-  projects: Array<ProjectsCategory>;
-  setProjects: Setter<ProjectsCategory[]>;
-};
-export type ExperienceProps = {
-  experience: Array<ExperienceCategory>;
-  setExperience: Setter<ExperienceCategory[]>;
-};
-export type EducationProps = {
-  education: Array<EducationCategory>;
-  setEducation: Setter<EducationCategory[]>;
-};
-export type LangugagesProps = {
-  languages: Array<LanguagesCategory>;
-  setLanguages: Setter<LanguagesCategory[]>;
-};
-
-export type StateProps = {
+export type FormPanelProps = {
   cvData: cvDataType;
-  setGeneralInfo: Setter<GeneralInfoCategory>;
-  setTechnicalSkills: Setter<TechSkillsCategory[]>;
-  setProjects: Setter<ProjectsCategory[]>;
-  setExperience: Setter<ExperienceCategory[]>;
-  setEducation: Setter<EducationCategory[]>;
-  setLanguages: Setter<LanguagesCategory[]>;
+  updateSection: <K extends keyof cvDataType>(
+    key: K,
+    value: cvDataType[K],
+  ) => void;
 };

@@ -1,6 +1,6 @@
 import { FormInput } from "./FormInput";
 import type { TechSkillsCategory } from "../../types";
-import { RemoveButton } from "./RemoveButton";
+import { ActionButton } from "../../ActionButton";
 
 export function SkillSection({
   technicalSkills,
@@ -45,9 +45,9 @@ export function SkillSection({
             }}
             placeholder="TypeSript, Python, C++,"
           />
-          <RemoveButton
+          <ActionButton
             label="Remove skillset"
-            onRemove={() => {
+            onAction={() => {
               onChange(
                 technicalSkills.filter((skill) => skill.id !== techSkill.id),
               );

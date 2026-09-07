@@ -1,6 +1,6 @@
 import { FormInput } from "./FormInput";
 import type { LanguagesCategory } from "../../types";
-import { RemoveButton } from "./RemoveButton";
+import { ActionButton } from "../../ActionButton";
 
 export function LanguagesSection({
   languages,
@@ -45,9 +45,9 @@ export function LanguagesSection({
             }}
             placeholder="Native speaker"
           />
-          <RemoveButton
+          <ActionButton
             label="Remove language"
-            onRemove={() => {
+            onAction={() => {
               onChange(languages.filter((ar) => ar.id !== pr.id));
             }}
           />
