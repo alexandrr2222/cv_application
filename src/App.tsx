@@ -51,6 +51,8 @@ function App() {
 
   return (
     <main className="flex p-4.5 bg-dark-bg min-h-dvh">
+      {/* <LoadExample />
+      <ClearResume /> */}
       <FormPanel
         cvData={cvData}
         setGeneralInfo={setGeneralInfo}
