@@ -2,6 +2,7 @@ import { FormInput } from "./FormInput";
 import type { EducationCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
 import { FormTextArea } from "./FormTextArea";
+import { buttonVariants } from "../../dataObjects/buttonVariants";
 
 export function EducationSection({
   education,
@@ -11,9 +12,12 @@ export function EducationSection({
   onChange: (upd: EducationCategory[]) => void;
 }) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {education.map((pr) => (
-        <li key={pr.id}>
+        <li
+          key={pr.id}
+          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
+        >
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -46,6 +50,7 @@ export function EducationSection({
             placeholder="Economics and management, 2022 - 2025"
           />
           <ActionButton
+            variant={buttonVariants.remove}
             label="Remove education"
             onAction={() => {
               onChange(education.filter((ar) => ar.id !== pr.id));

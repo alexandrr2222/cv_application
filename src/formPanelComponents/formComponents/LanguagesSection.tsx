@@ -1,6 +1,7 @@
 import { FormInput } from "./FormInput";
 import type { LanguagesCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
+import { buttonVariants } from "../../dataObjects/buttonVariants";
 
 export function LanguagesSection({
   languages,
@@ -10,9 +11,12 @@ export function LanguagesSection({
   onChange: (upd: LanguagesCategory[]) => void;
 }) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {languages.map((pr) => (
-        <li key={pr.id}>
+        <li
+          key={pr.id}
+          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
+        >
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -31,7 +35,7 @@ export function LanguagesSection({
           />
           <FormInput
             id={"description" + pr.id}
-            label="description"
+            label="Description"
             type="text"
             value={pr.description}
             onChange={(e) => {
@@ -46,6 +50,7 @@ export function LanguagesSection({
             placeholder="Native speaker"
           />
           <ActionButton
+            variant={buttonVariants.remove}
             label="Remove language"
             onAction={() => {
               onChange(languages.filter((ar) => ar.id !== pr.id));

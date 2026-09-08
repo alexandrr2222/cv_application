@@ -1,4 +1,4 @@
-import type { cvDataType } from "./types";
+import type { cvDataType } from "../types";
 
 export const emptyCv: cvDataType = {
   generalInfo: {

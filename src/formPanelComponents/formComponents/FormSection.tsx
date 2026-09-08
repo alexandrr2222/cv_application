@@ -4,8 +4,8 @@ type FormSectionProps = {
 };
 export function FormSection({ title, children }: FormSectionProps) {
   return (
-    <fieldset>
-      <legend>{title}</legend>
+    <fieldset className="flex flex-col gap-3">
+      <legend className="font-medium text-base mb-2">{title}</legend>
       {children}
     </fieldset>
   );

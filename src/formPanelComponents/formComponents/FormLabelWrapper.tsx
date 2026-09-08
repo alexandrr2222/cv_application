@@ -9,8 +9,8 @@ export function FormLabelWrapper({
   children,
 }: FormLabelWrapperProps) {
   return (
-    <div>
-      <label className="text-dark-label" htmlFor={id}>
+    <div className="flex flex-col gap-1">
+      <label className="text-label text-xs font-medium" htmlFor={id}>
         {label}
       </label>
       {children}

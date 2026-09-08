@@ -1,6 +1,7 @@
 import { FormInput } from "./FormInput";
 import type { TechSkillsCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
+import { buttonVariants } from "../../dataObjects/buttonVariants";
 
 export function SkillSection({
   technicalSkills,
@@ -10,9 +11,12 @@ export function SkillSection({
   onChange: (upd: TechSkillsCategory[]) => void;
 }) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {technicalSkills.map((techSkill) => (
-        <li key={techSkill.id}>
+        <li
+          key={techSkill.id}
+          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
+        >
           <FormInput
             id={"title" + techSkill.id}
             label="Title"
@@ -43,10 +47,11 @@ export function SkillSection({
                 }),
               );
             }}
-            placeholder="TypeSript, Python, C++,"
+            placeholder="TypeScript, Python, C++"
           />
           <ActionButton
             label="Remove skillset"
+            variant={buttonVariants.remove}
             onAction={() => {
               onChange(
                 technicalSkills.filter((skill) => skill.id !== techSkill.id),

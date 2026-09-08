@@ -2,6 +2,7 @@ import type { ExperienceCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
 import { ExperienceSection } from "./formComponents/ExperienceSection";
 import { ActionButton } from "../ActionButton";
+import { buttonVariants } from "../dataObjects/buttonVariants";
 
 export function Experience({
   experience,
@@ -13,6 +14,7 @@ export function Experience({
   return (
     <FormSection title={"Work Experience"}>
       <ActionButton
+        variant={buttonVariants.add}
         label="Add new work experience"
         onAction={() =>
           updateSection("experience", [

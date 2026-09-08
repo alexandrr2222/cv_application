@@ -26,7 +26,7 @@ export function GeneralInfo({
         autoComplete="name"
         placeholder="Adam Smith"
       />
-      <ul>
+      <ul className="flex flex-col gap-2">
         <li>
           <FormInput
             id={"emailInput"}

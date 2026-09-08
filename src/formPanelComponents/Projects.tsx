@@ -2,6 +2,7 @@ import type { ProjectsCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
 import { ProjectSection } from "./formComponents/ProjectSection";
 import { ActionButton } from "../ActionButton";
+import { buttonVariants } from "../dataObjects/buttonVariants";
 
 export function Projects({
   projects,
@@ -13,6 +14,7 @@ export function Projects({
   return (
     <FormSection title={"Projects"}>
       <ActionButton
+        variant={buttonVariants.add}
         label="Add new project"
         onAction={() =>
           updateSection("projects", [

@@ -2,6 +2,7 @@ import { FormSection } from "./formComponents/FormSection";
 import { LanguagesSection } from "./formComponents/LanguagesSection";
 import type { LanguagesCategory } from "../types";
 import { ActionButton } from "../ActionButton";
+import { buttonVariants } from "../dataObjects/buttonVariants";
 
 export function Languages({
   languages,
@@ -13,6 +14,7 @@ export function Languages({
   return (
     <FormSection title={"Language skills"}>
       <ActionButton
+        variant={buttonVariants.add}
         label="Add new language"
         onAction={() =>
           updateSection("languages", [

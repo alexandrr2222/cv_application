@@ -2,6 +2,7 @@ import { FormSection } from "./formComponents/FormSection";
 import { EducationSection } from "./formComponents/EducationSection";
 import type { EducationCategory } from "../types";
 import { ActionButton } from "../ActionButton";
+import { buttonVariants } from "../dataObjects/buttonVariants";
 
 export function Education({
   education,
@@ -13,6 +14,7 @@ export function Education({
   return (
     <FormSection title={"Education"}>
       <ActionButton
+        variant={buttonVariants.add}
         label="Add new education"
         onAction={() =>
           updateSection("education", [

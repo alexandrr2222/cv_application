@@ -2,6 +2,7 @@ import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
 import type { ExperienceCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
+import { buttonVariants } from "../../dataObjects/buttonVariants";
 
 export function ExperienceSection({
   experience,
@@ -11,9 +12,12 @@ export function ExperienceSection({
   onChange: (upd: ExperienceCategory[]) => void;
 }) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {experience.map((pr) => (
-        <li key={pr.id}>
+        <li
+          key={pr.id}
+          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
+        >
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -78,6 +82,7 @@ export function ExperienceSection({
             autoComplete="off"
           />
           <ActionButton
+            variant={buttonVariants.remove}
             label="Remove work experience"
             onAction={() => {
               onChange(experience.filter((ar) => ar.id !== pr.id));

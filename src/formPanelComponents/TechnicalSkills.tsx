@@ -2,6 +2,7 @@ import type { TechSkillsCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
 import { SkillSection } from "./formComponents/SkillSection";
 import { ActionButton } from "../ActionButton";
+import { buttonVariants } from "../dataObjects/buttonVariants";
 
 export function TechnicalSkills({
   technicalSkills,
@@ -13,6 +14,7 @@ export function TechnicalSkills({
   return (
     <FormSection title={"Technical Skills"}>
       <ActionButton
+        variant={buttonVariants.add}
         label="Add new skillset"
         onAction={() =>
           updateSection("technicalSkills", [

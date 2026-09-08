@@ -2,6 +2,7 @@ import { FormInput } from "./FormInput";
 import { FormTextArea } from "./FormTextArea";
 import type { ProjectsCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
+import { buttonVariants } from "../../dataObjects/buttonVariants";
 
 export function ProjectSection({
   projects,
@@ -11,9 +12,12 @@ export function ProjectSection({
   onChange: (upd: ProjectsCategory[]) => void;
 }) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {projects.map((pr) => (
-        <li key={pr.id}>
+        <li
+          key={pr.id}
+          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
+        >
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -62,6 +66,7 @@ export function ProjectSection({
             autoComplete="off"
           />
           <ActionButton
+            variant={buttonVariants.remove}
             label="Remove project"
             onAction={() => {
               onChange(projects.filter((ar) => ar.id !== pr.id));

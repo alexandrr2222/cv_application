@@ -1,4 +1,4 @@
-import type { cvDataType } from "./types";
+import type { cvDataType } from "../types";
 
 export const filledCv: cvDataType = {
   generalInfo: {
@@ -41,13 +41,6 @@ export const filledCv: cvDataType = {
       description:
         "Departure board for Prague public transport using the Golemio open data API. Handles loading and error states explicitly, caches responses, and refreshes on an interval.",
     },
-    {
-      id: "project-3",
-      title: "Split",
-      link: "github.com/jnovakova/split",
-      description:
-        "Expense-splitting app for shared households. Vanilla JS with no build step, deployed on GitHub Pages. Written before I picked up React, kept as a reference point.",
-    },
   ],
   experience: [
     {
@@ -70,12 +63,6 @@ export const filledCv: cvDataType = {
   education: [
     {
       id: "edu-1",
-      title: "The Odin Project — Full Stack JavaScript",
-      description:
-        "Self-directed curriculum covering JavaScript fundamentals, React, testing, and Node. Completed alongside full-time work.",
-    },
-    {
-      id: "edu-2",
       title: "Bc. Economics and Management, University of Economics, Prague",
       description:
         "Bachelor's degree with a focus on quantitative methods and statistics. Thesis on forecasting seasonal demand in retail.",
@@ -92,11 +79,6 @@ export const filledCv: cvDataType = {
       title: "English",
       description:
         "C1 — daily working language, comfortable in technical discussions",
-    },
-    {
-      id: "lang-3",
-      title: "German",
-      description: "B1 — conversational, reading technical documentation",
     },
   ],
 };
