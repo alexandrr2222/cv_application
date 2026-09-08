@@ -1,6 +1,7 @@
 import { FormInput } from "./FormInput";
 import type { EducationCategory } from "../../types";
 import { ActionButton } from "../../ActionButton";
+import { FormTextArea } from "./FormTextArea";
 
 export function EducationSection({
   education,
@@ -10,9 +11,9 @@ export function EducationSection({
   onChange: (upd: EducationCategory[]) => void;
 }) {
   return (
-    <>
+    <ul>
       {education.map((pr) => (
-        <div key={pr.id}>
+        <li key={pr.id}>
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -29,10 +30,9 @@ export function EducationSection({
             }}
             placeholder="Czech University of Life Sciences"
           />
-          <FormInput
+          <FormTextArea
             id={"description" + pr.id}
             label="Additional information"
-            type="text"
             value={pr.description}
             onChange={(e) => {
               onChange(
@@ -51,8 +51,8 @@ export function EducationSection({
               onChange(education.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </div>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }

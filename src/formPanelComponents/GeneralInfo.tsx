@@ -26,34 +26,43 @@ export function GeneralInfo({
         autoComplete="name"
         placeholder="Adam Smith"
       />
-      <FormInput
-        id={"emailInput"}
-        label={"Email"}
-        type={"email"}
-        value={generalInfo.email}
-        onChange={handleChange("email")}
-        autoComplete="email"
-        placeholder="adam.smith@gmail.com"
-      />
-      <FormInput
-        id={"phoneInput"}
-        label={"Phone"}
-        type={"tel"}
-        value={generalInfo.phone}
-        onChange={handleChange("phone")}
-        autoComplete="tel"
-        inputMode="tel"
-        placeholder="+420 123 456 789"
-      />
-      <FormInput
-        id={"websiteInput"}
-        label={"Website"}
-        type={"url"}
-        value={generalInfo.website}
-        onChange={handleChange("website")}
-        autoComplete="url"
-        placeholder="linkedin.com/in/adamsmith"
-      />
+      <ul>
+        <li>
+          <FormInput
+            id={"emailInput"}
+            label={"Email"}
+            type={"email"}
+            value={generalInfo.email}
+            onChange={handleChange("email")}
+            autoComplete="email"
+            placeholder="adam.smith@gmail.com"
+          />
+        </li>
+        <li>
+          <FormInput
+            id={"phoneInput"}
+            label={"Phone"}
+            type={"tel"}
+            value={generalInfo.phone}
+            onChange={handleChange("phone")}
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="+420 123 456 789"
+          />
+        </li>
+        <li>
+          <FormInput
+            id={"websiteInput"}
+            label={"Website"}
+            type={"url"}
+            value={generalInfo.website}
+            onChange={handleChange("website")}
+            autoComplete="url"
+            placeholder="linkedin.com/in/adamsmith"
+          />
+        </li>
+      </ul>
+
       <FormTextArea
         id={"summaryInput"}
         label={"Summary"}

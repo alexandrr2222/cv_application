@@ -2,10 +2,10 @@ import type { cvDataType } from "./types";
 
 export function PrintedCv({ cvData }: { cvData: cvDataType }) {
   return (
-    <div>
-      <section>
+    <article>
+      <header>
         <h1>{cvData.generalInfo.name}</h1>
-        <div>
+        <address>
           <a href={"mailto:" + cvData.generalInfo.email}>
             {cvData.generalInfo.email}
           </a>
@@ -13,8 +13,8 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
             {cvData.generalInfo.phone}
           </a>
           <a href={cvData.generalInfo.website}>{cvData.generalInfo.website}</a>
-        </div>
-      </section>
+        </address>
+      </header>
       <section>
         <h2>Summary</h2>
         <p>{cvData.generalInfo.summary}</p>
@@ -23,8 +23,8 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
         <h2>Technical skills</h2>
         {cvData.technicalSkills.map((skill) => {
           return (
-            <div id={skill.id}>
-              <h4>{skill.title}</h4>
+            <div key={skill.id}>
+              <h3>{skill.title}</h3>
               <p>{skill.skills}</p>
             </div>
           );
@@ -34,10 +34,10 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
         <h2>Projects</h2>
         {cvData.projects.map((project) => {
           return (
-            <div id={project.id}>
+            <div key={project.id}>
               <div>
                 <h3>{project.title}</h3>
-                <a href={project.link}></a>
+                <a href={project.link}>{project.link}</a>
               </div>
               <p>{project.description}</p>
             </div>
@@ -48,9 +48,9 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
         <h2>Work experience</h2>
         {cvData.experience.map((exp) => {
           return (
-            <div id={exp.id}>
+            <div key={exp.id}>
               <div>
-                <h4>{exp.title}</h4>
+                <h3>{exp.title}</h3>
                 <time dateTime={exp.date}>{exp.date}</time>
               </div>
               <p>{exp.companyName}</p>
@@ -63,8 +63,8 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
         <h2>Education</h2>
         {cvData.education.map((ed) => {
           return (
-            <div id={ed.id}>
-              <h4>{ed.title}</h4>
+            <div key={ed.id}>
+              <h3>{ed.title}</h3>
               <p>{ed.description}</p>
             </div>
           );
@@ -74,13 +74,13 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
         <h2>Language skills</h2>
         {cvData.languages.map((lg) => {
           return (
-            <div id={lg.id}>
-              <h4>{lg.title}</h4>
+            <div key={lg.id}>
+              <h3>{lg.title}</h3>
               <p>{lg.description}</p>
             </div>
           );
         })}
       </section>
-    </div>
+    </article>
   );
 }

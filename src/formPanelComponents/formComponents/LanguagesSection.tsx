@@ -10,9 +10,9 @@ export function LanguagesSection({
   onChange: (upd: LanguagesCategory[]) => void;
 }) {
   return (
-    <>
+    <ul>
       {languages.map((pr) => (
-        <div key={pr.id}>
+        <li key={pr.id}>
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -51,8 +51,8 @@ export function LanguagesSection({
               onChange(languages.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </div>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }

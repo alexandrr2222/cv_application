@@ -8,8 +8,11 @@ import type { FormPanelProps } from "./types";
 
 export function FormPanel({ cvData, updateSection }: FormPanelProps) {
   return (
-    <div className="flex flex-col">
-      <h1 className="text-dark-accent">Simple CV Creator</h1>
+    <form
+      aria-label="CV editor"
+      onSubmit={(e) => e.preventDefault()}
+      className="flex flex-col"
+    >
       <GeneralInfo
         generalInfo={cvData.generalInfo}
         updateSection={updateSection}
@@ -25,6 +28,6 @@ export function FormPanel({ cvData, updateSection }: FormPanelProps) {
       />
       <Education education={cvData.education} updateSection={updateSection} />
       <Languages languages={cvData.languages} updateSection={updateSection} />
-    </div>
+    </form>
   );
 }

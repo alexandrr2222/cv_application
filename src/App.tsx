@@ -15,8 +15,9 @@ function App() {
     setCvData((prev) => ({ ...prev, [key]: value }));
   }
   return (
-    <main className="flex p-4.5 bg-dark-bg min-h-dvh print:block print:p-0 print:bg-white">
-      <div className="print:hidden">
+    <div>
+      <header className="print:hidden">
+        <p className="text-dark-accent">Simple CV Creator</p>
         <ActionButton
           onAction={() => setCvData(filledCv)}
           label="Load Example"
@@ -25,18 +26,18 @@ function App() {
           onAction={() => setCvData(emptyCv)}
           label="Clear Resume"
         />
+        <ActionButton onAction={() => window.print()} label="Print CV" />
+      </header>
+      <main className="flex p-4.5 bg-dark-bg min-h-dvh print:block print:p-0 print:bg-white">
         <FormPanel cvData={cvData} updateSection={updateSection} />
-      </div>
-      <div>
         <PrintedCv cvData={cvData} />
-        <ActionButton
-          onAction={() => window.print()}
-          label="Print CV"
-          className="print:hidden"
-        />
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
 
 export default App;
+// fix href for websites
+// guard empty sections
+// broken date semantics
+// section of print as component

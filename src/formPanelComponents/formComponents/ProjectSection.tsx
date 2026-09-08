@@ -11,9 +11,9 @@ export function ProjectSection({
   onChange: (upd: ProjectsCategory[]) => void;
 }) {
   return (
-    <>
+    <ul>
       {projects.map((pr) => (
-        <div key={pr.id}>
+        <li key={pr.id}>
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -67,8 +67,8 @@ export function ProjectSection({
               onChange(projects.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </div>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }

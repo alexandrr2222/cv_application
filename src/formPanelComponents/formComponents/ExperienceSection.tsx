@@ -11,9 +11,9 @@ export function ExperienceSection({
   onChange: (upd: ExperienceCategory[]) => void;
 }) {
   return (
-    <>
+    <ul>
       {experience.map((pr) => (
-        <div key={pr.id}>
+        <li key={pr.id}>
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -83,8 +83,8 @@ export function ExperienceSection({
               onChange(experience.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </div>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }

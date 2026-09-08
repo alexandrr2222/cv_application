@@ -4,7 +4,7 @@ import type { ComponentProps } from "react";
 type FormInputProps = Omit<ComponentProps<"input">, "type" | "id"> & {
   id: string;
   label: string;
-  type: "text" | "email" | "password" | "tel" | "url";
+  type: "text" | "email" | "tel" | "url";
 };
 
 export function FormInput({ id, label, ...props }: FormInputProps) {

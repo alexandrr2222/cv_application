@@ -10,9 +10,9 @@ export function SkillSection({
   onChange: (upd: TechSkillsCategory[]) => void;
 }) {
   return (
-    <>
+    <ul>
       {technicalSkills.map((techSkill) => (
-        <div key={techSkill.id}>
+        <li key={techSkill.id}>
           <FormInput
             id={"title" + techSkill.id}
             label="Title"
@@ -53,8 +53,8 @@ export function SkillSection({
               );
             }}
           />
-        </div>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }
