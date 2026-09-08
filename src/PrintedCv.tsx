@@ -1,4 +1,6 @@
+import { PrintedCvSection } from "./PrintedCvComponents/PrintedCvSection";
 import type { cvDataType } from "./types";
+import { urlChecker } from "./helperFunction/urlChecker";
 
 export function PrintedCv({ cvData }: { cvData: cvDataType }) {
   return (
@@ -21,99 +23,89 @@ export function PrintedCv({ cvData }: { cvData: cvDataType }) {
             >
               {cvData.generalInfo.phone}
             </a>
-            <a className="hover:underline" href={cvData.generalInfo.website}>
+            <a
+              className="hover:underline"
+              href={urlChecker(cvData.generalInfo.website)}
+            >
               {cvData.generalInfo.website}
             </a>
           </address>
         </header>
-        <section className="space-y-2">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Summary
-          </h2>
-          <p>{cvData.generalInfo.summary}</p>
-        </section>
-        <section className="space-y-2">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Technical skills
-          </h2>
-          {cvData.technicalSkills.map((skill) => {
-            return (
-              <div key={skill.id} className="flex gap-3 break-inside-avoid">
-                <h3 className="font-semibold w-44 shrink-0">{skill.title}</h3>
-                <p>{skill.skills}</p>
+        {cvData.generalInfo.summary.length > 0 && (
+          <section className="space-y-2">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
+              Summary
+            </h2>
+            <p>{cvData.generalInfo.summary}</p>
+          </section>
+        )}
+        <PrintedCvSection
+          label="Technical skills"
+          cvDataArray={cvData.technicalSkills}
+          renderItem={(skill) => (
+            <div key={skill.id} className="flex gap-3 break-inside-avoid">
+              <h3 className="font-semibold w-44 shrink-0">{skill.title}</h3>
+              <p>{skill.skills}</p>
+            </div>
+          )}
+        />
+        <PrintedCvSection
+          label="Projects"
+          cvDataArray={cvData.projects}
+          renderItem={(project) => (
+            <div key={project.id} className="space-y-1 break-inside-avoid">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="font-semibold">{project.title}</h3>
+                <a
+                  className="text-xs text-neutral-600 hover:underline"
+                  href={urlChecker(project.link)}
+                >
+                  {project.link}
+                </a>
               </div>
-            );
-          })}
-        </section>
-        <section className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Projects
-          </h2>
-          {cvData.projects.map((project) => {
-            return (
-              <div key={project.id} className="space-y-1 break-inside-avoid">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-semibold">{project.title}</h3>
-                  <a
-                    className="text-xs text-neutral-600 hover:underline"
-                    href={project.link}
-                  >
-                    {project.link}
-                  </a>
-                </div>
-                <p>{project.description}</p>
+              <p>{project.description}</p>
+            </div>
+          )}
+        />
+        <PrintedCvSection
+          label="Work experience"
+          cvDataArray={cvData.experience}
+          renderItem={(exp) => (
+            <div key={exp.id} className="space-y-1 break-inside-avoid">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="font-semibold">{exp.title}</h3>
+                <time
+                  className="text-xs text-neutral-600 shrink-0"
+                  dateTime={exp.date}
+                >
+                  {exp.date}
+                </time>
               </div>
-            );
-          })}
-        </section>
-        <section className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Work experience
-          </h2>
-          {cvData.experience.map((exp) => {
-            return (
-              <div key={exp.id} className="space-y-1 break-inside-avoid">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-semibold">{exp.title}</h3>
-                  <time
-                    className="text-xs text-neutral-600 shrink-0"
-                    dateTime={exp.date}
-                  >
-                    {exp.date}
-                  </time>
-                </div>
-                <p className="text-neutral-600 italic">{exp.companyName}</p>
-                <p>{exp.description}</p>
-              </div>
-            );
-          })}
-        </section>
-        <section className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Education
-          </h2>
-          {cvData.education.map((ed) => {
-            return (
-              <div key={ed.id} className="space-y-1 break-inside-avoid">
-                <h3 className="font-semibold">{ed.title}</h3>
-                <p>{ed.description}</p>
-              </div>
-            );
-          })}
-        </section>
-        <section className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-            Language skills
-          </h2>
-          {cvData.languages.map((lg) => {
-            return (
-              <div key={lg.id} className="flex gap-3 break-inside-avoid">
-                <h3 className="font-semibold w-44 shrink-0">{lg.title}</h3>
-                <p>{lg.description}</p>
-              </div>
-            );
-          })}
-        </section>
+              <p className="text-neutral-600 italic">{exp.companyName}</p>
+              <p>{exp.description}</p>
+            </div>
+          )}
+        />
+        <PrintedCvSection
+          label="Education"
+          cvDataArray={cvData.education}
+          renderItem={(ed) => (
+            <div key={ed.id} className="space-y-1 break-inside-avoid">
+              <h3 className="font-semibold">{ed.title}</h3>
+              <p>{ed.description}</p>
+            </div>
+          )}
+        />
+        <PrintedCvSection
+          label="Languages"
+          cvDataArray={cvData.languages}
+          renderItem={(lg) => (
+            <div key={lg.id} className="flex gap-3 break-inside-avoid">
+              <h3 className="font-semibold w-44 shrink-0">{lg.title}</h3>
+              <p>{lg.description}</p>
+            </div>
+          )}
+        />
       </article>
     </div>
   );

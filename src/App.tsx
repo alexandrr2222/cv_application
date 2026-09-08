@@ -4,7 +4,7 @@ import { PrintedCv } from "./PrintedCv";
 import { emptyCv } from "./dataObjects/emptyCv";
 import { filledCv } from "./dataObjects/filledCv";
 import type { cvDataType } from "./types";
-import { usePersistedState } from "./usePersistedState";
+import { usePersistedState } from "./helperFunction/usePersistedState";
 import { buttonVariants } from "./dataObjects/buttonVariants";
 
 function App() {
@@ -49,7 +49,5 @@ function App() {
 
 export default App;
 
-// fix href for websites
-// guard empty sections
+// TODO
 // broken date semantics
-// section of print as component
