@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="bg-color-bg font-sans min-h-dvh">
       <header className="print:hidden flex items-center justify-between px-6 py-4 border-b border-color-border">
-        <p className="text-dark-accent text-lg font-medium tracking-tight">
+        <p className="text-dark-accent text-2xl font-medium tracking-tight">
           Humble CV Creator
         </p>
         <div className="flex justify-center gap-2">
