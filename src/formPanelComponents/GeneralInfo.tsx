@@ -19,7 +19,7 @@ export function GeneralInfo({
   return (
     <FormSection title={"General Info"}>
       <SectionWrapper element="div" key="generalInfo">
-        <ul className="grid grid-cols-2 gap-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <li>
             <FormInput
               id={"fullNameInput"}

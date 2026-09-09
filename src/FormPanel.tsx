@@ -11,14 +11,14 @@ export function FormPanel({ cvData, updateSection }: FormPanelProps) {
     <form
       aria-label="CV editor"
       onSubmit={(e) => e.preventDefault()}
-      className="flex flex-col w-184 shrink-0 rounded-lg print:hidden"
+      className="flex flex-col gap-8 w-full xl:w-184 shrink-0 rounded-lg p-3 sm:p-5 print:hidden"
     >
       <GeneralInfo
         generalInfo={cvData.generalInfo}
         updateSection={updateSection}
       />
 
-      <div className="columns-2 gap-6">
+      <div className="columns-1 md:columns-2 gap-6">
         <TechnicalSkills
           technicalSkills={cvData.technicalSkills}
           updateSection={updateSection}

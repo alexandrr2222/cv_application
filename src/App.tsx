@@ -17,8 +17,9 @@ function App() {
   }
   return (
     <div className="bg-[#eeebe5] font-sans min-h-dvh">
-      <header className="sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex items-center justify-between px-6 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
-        <p className="select-none text-xl font-semibold  tracking-widest text-accent">
+      <header className="sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex flex-wrap items-center justify-center sm:justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+        <p className="w-full sm:w-auto text-center sm:text-left text-base sm:text-xl font-semibold tracking-wider sm:tracking-widest text-accent">
+          {" "}
           Humble{" "}
           <span className="bg-accent inline-block transition-transform duration-200 hover:-rotate-6 hover:scale-110 text-[#f8f7f3] px-1.5 py-0.5 rounded-sm tracking-normal">
             CV
@@ -43,7 +44,8 @@ function App() {
           />
         </div>
       </header>
-      <main className="flex gap-20 items-start justify-center px-6 py-8 min-h-dvh print:block print:p-0 print:bg-white">
+      <main className="flex flex-col xl:gap-12 2xl:gap-20 xl:shrink-0 xl:flex-row items-start justify-center px-4 sm:px-6 py-8 print:block print:p-0">
+        {" "}
         <FormPanel cvData={cvData} updateSection={updateSection} />
         <PrintedCv cvData={cvData} />
       </main>
