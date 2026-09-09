@@ -1,6 +1,6 @@
 import type { ExperienceCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
-import { ExperienceSection } from "./formComponents/ExperienceSection";
+import { ExperienceSection } from "./formComponents/sections/ExperienceSection";
 import { ActionButton } from "../ActionButton";
 import { buttonVariants } from "../dataObjects/buttonVariants";
 

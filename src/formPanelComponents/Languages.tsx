@@ -1,5 +1,5 @@
 import { FormSection } from "./formComponents/FormSection";
-import { LanguagesSection } from "./formComponents/LanguagesSection";
+import { LanguagesSection } from "./formComponents/sections/LanguagesSection";
 import type { LanguagesCategory } from "../types";
 import { ActionButton } from "../ActionButton";
 import { buttonVariants } from "../dataObjects/buttonVariants";

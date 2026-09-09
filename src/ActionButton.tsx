@@ -13,7 +13,7 @@ export function ActionButton({
     <button
       type="button"
       onClick={onAction}
-      className={`rounded cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 ${variant} ${className}`}
+      className={`rounded cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${variant} ${className}`}
     >
       {label}
     </button>

@@ -1,3 +1,4 @@
+import { SectionHeader } from "./SectionHeader";
 type PrintedCvSectionType<T> = {
   label: string;
   cvDataArray: Array<T>;
@@ -12,9 +13,7 @@ export function PrintedCvSection<T>({
   if (cvDataArray.length > 0) {
     return (
       <section className="space-y-2">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
-          {label}
-        </h2>
+        <SectionHeader label={label} />
         {cvDataArray.map((item) => renderItem(item))}
       </section>
     );

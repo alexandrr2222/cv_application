@@ -1,6 +1,6 @@
 import type { ProjectsCategory } from "../types";
 import { FormSection } from "./formComponents/FormSection";
-import { ProjectSection } from "./formComponents/ProjectSection";
+import { ProjectSection } from "./formComponents/sections/ProjectSection";
 import { ActionButton } from "../ActionButton";
 import { buttonVariants } from "../dataObjects/buttonVariants";
 

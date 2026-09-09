@@ -1,8 +1,9 @@
-import { FormInput } from "./FormInput";
-import { FormTextArea } from "./FormTextArea";
-import type { ExperienceCategory } from "../../types";
-import { ActionButton } from "../../ActionButton";
-import { buttonVariants } from "../../dataObjects/buttonVariants";
+import { FormInput } from "../FormInput";
+import { FormTextArea } from "../FormTextArea";
+import type { ExperienceCategory } from "../../../types";
+import { ActionButton } from "../../../ActionButton";
+import { buttonVariants } from "../../../dataObjects/buttonVariants";
+import { SectionWrapper } from "../SectionWrapper";
 
 export function ExperienceSection({
   experience,
@@ -14,10 +15,7 @@ export function ExperienceSection({
   return (
     <ul className="flex flex-col gap-3">
       {experience.map((pr) => (
-        <li
-          key={pr.id}
-          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
-        >
+        <SectionWrapper key={pr.id} element="li">
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -88,7 +86,7 @@ export function ExperienceSection({
               onChange(experience.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </li>
+        </SectionWrapper>
       ))}
     </ul>
   );

@@ -1,23 +1,20 @@
-import { FormInput } from "./FormInput";
-import type { EducationCategory } from "../../types";
-import { ActionButton } from "../../ActionButton";
-import { FormTextArea } from "./FormTextArea";
-import { buttonVariants } from "../../dataObjects/buttonVariants";
+import { FormInput } from "../FormInput";
+import type { LanguagesCategory } from "../../../types";
+import { ActionButton } from "../../../ActionButton";
+import { buttonVariants } from "../../../dataObjects/buttonVariants";
+import { SectionWrapper } from "../SectionWrapper";
 
-export function EducationSection({
-  education,
+export function LanguagesSection({
+  languages,
   onChange,
 }: {
-  education: EducationCategory[];
-  onChange: (upd: EducationCategory[]) => void;
+  languages: LanguagesCategory[];
+  onChange: (upd: LanguagesCategory[]) => void;
 }) {
   return (
     <ul className="flex flex-col gap-3">
-      {education.map((pr) => (
-        <li
-          key={pr.id}
-          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
-        >
+      {languages.map((pr) => (
+        <SectionWrapper key={pr.id} element="li">
           <FormInput
             id={"title" + pr.id}
             label="Title"
@@ -25,38 +22,39 @@ export function EducationSection({
             value={pr.title}
             onChange={(e) => {
               onChange(
-                education.map((ar) => {
+                languages.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, title: e.target.value };
                   } else return ar;
                 }),
               );
             }}
-            placeholder="Czech University of Life Sciences"
+            placeholder="Czech"
           />
-          <FormTextArea
+          <FormInput
             id={"description" + pr.id}
-            label="Additional information"
+            label="Description"
+            type="text"
             value={pr.description}
             onChange={(e) => {
               onChange(
-                education.map((ar) => {
+                languages.map((ar) => {
                   if (ar.id === pr.id) {
                     return { ...ar, description: e.target.value };
                   } else return ar;
                 }),
               );
             }}
-            placeholder="Economics and management, 2022 - 2025"
+            placeholder="Native speaker"
           />
           <ActionButton
             variant={buttonVariants.remove}
-            label="Remove education"
+            label="Remove language"
             onAction={() => {
-              onChange(education.filter((ar) => ar.id !== pr.id));
+              onChange(languages.filter((ar) => ar.id !== pr.id));
             }}
           />
-        </li>
+        </SectionWrapper>
       ))}
     </ul>
   );

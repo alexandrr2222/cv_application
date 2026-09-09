@@ -2,10 +2,10 @@ import type { cvDataType } from "../types";
 
 export const filledCv: cvDataType = {
   generalInfo: {
-    name: "Jana Nováková",
-    email: "jana.novakova@example.com",
+    name: "Jan Niederle",
+    email: "jana.niederle@example.com",
     phone: "+420 777 123 456",
-    website: "github.com/jnovakova",
+    website: "jniederle.portfolio.com",
     summary:
       "Frontend developer with a background in data analysis, focused on React and TypeScript. I like building interfaces that stay readable as they grow, and I care about accessibility and clean state management. Looking for a junior role where I can learn from code review and ship regularly.",
   },
@@ -13,7 +13,7 @@ export const filledCv: cvDataType = {
     {
       id: "skill-1",
       title: "Languages",
-      skills: "TypeScript, JavaScript (ES2022), HTML, CSS, SQL",
+      skills: "TypeScript, JavaScript, Python HTML, CSS, SQL",
     },
     {
       id: "skill-2",
@@ -30,14 +30,14 @@ export const filledCv: cvDataType = {
     {
       id: "project-1",
       title: "CV Builder",
-      link: "github.com/jnovakova/cv-builder",
+      link: "github.com/jniederle/cv-builder",
       description:
-        "Single-page CV generator built with React and TypeScript. Live preview updates as you type, state persists to localStorage through a custom hook, and the result prints straight to A4 PDF via print stylesheets.",
+        "Single-page CV generator built with React, TypeScript and Tailwind CSS. Live preview updates as you type, state persists to localStorage through a custom hook, and the result prints straight to A4 PDF via print stylesheets.",
     },
     {
       id: "project-2",
       title: "Transit Board",
-      link: "github.com/jnovakova/transit-board",
+      link: "github.com/jniederle/transit-board",
       description:
         "Departure board for Prague public transport using the Golemio open data API. Handles loading and error states explicitly, caches responses, and refreshes on an interval.",
     },

@@ -11,23 +11,26 @@ export function FormPanel({ cvData, updateSection }: FormPanelProps) {
     <form
       aria-label="CV editor"
       onSubmit={(e) => e.preventDefault()}
-      className="flex flex-col gap-8 w-96 shrink-0 bg-surface rounded-lg p-5 print:hidden"
+      className="flex flex-col w-184 shrink-0 rounded-lg print:hidden"
     >
       <GeneralInfo
         generalInfo={cvData.generalInfo}
         updateSection={updateSection}
       />
-      <TechnicalSkills
-        technicalSkills={cvData.technicalSkills}
-        updateSection={updateSection}
-      />
-      <Projects projects={cvData.projects} updateSection={updateSection} />
-      <Experience
-        experience={cvData.experience}
-        updateSection={updateSection}
-      />
-      <Education education={cvData.education} updateSection={updateSection} />
-      <Languages languages={cvData.languages} updateSection={updateSection} />
+
+      <div className="columns-2 gap-6">
+        <TechnicalSkills
+          technicalSkills={cvData.technicalSkills}
+          updateSection={updateSection}
+        />
+        <Languages languages={cvData.languages} updateSection={updateSection} />
+        <Projects projects={cvData.projects} updateSection={updateSection} />
+        <Experience
+          experience={cvData.experience}
+          updateSection={updateSection}
+        />
+        <Education education={cvData.education} updateSection={updateSection} />
+      </div>
     </form>
   );
 }

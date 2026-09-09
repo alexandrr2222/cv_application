@@ -1,7 +1,8 @@
-import { FormInput } from "./FormInput";
-import type { TechSkillsCategory } from "../../types";
-import { ActionButton } from "../../ActionButton";
-import { buttonVariants } from "../../dataObjects/buttonVariants";
+import { FormInput } from "../FormInput";
+import type { TechSkillsCategory } from "../../../types";
+import { ActionButton } from "../../../ActionButton";
+import { buttonVariants } from "../../../dataObjects/buttonVariants";
+import { SectionWrapper } from "../SectionWrapper";
 
 export function SkillSection({
   technicalSkills,
@@ -13,10 +14,7 @@ export function SkillSection({
   return (
     <ul className="flex flex-col gap-3">
       {technicalSkills.map((techSkill) => (
-        <li
-          key={techSkill.id}
-          className="flex flex-col gap-2 rounded border border-neutral-300 p-3"
-        >
+        <SectionWrapper key={techSkill.id} element="li">
           <FormInput
             id={"title" + techSkill.id}
             label="Title"
@@ -58,7 +56,7 @@ export function SkillSection({
               );
             }}
           />
-        </li>
+        </SectionWrapper>
       ))}
     </ul>
   );

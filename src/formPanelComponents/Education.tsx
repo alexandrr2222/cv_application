@@ -1,5 +1,5 @@
 import { FormSection } from "./formComponents/FormSection";
-import { EducationSection } from "./formComponents/EducationSection";
+import { EducationSection } from "./formComponents/sections/EducationSection";
 import type { EducationCategory } from "../types";
 import { ActionButton } from "../ActionButton";
 import { buttonVariants } from "../dataObjects/buttonVariants";

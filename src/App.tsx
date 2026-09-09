@@ -16,10 +16,14 @@ function App() {
     setCvData((prev) => ({ ...prev, [key]: value }));
   }
   return (
-    <div className="bg-color-bg font-sans min-h-dvh">
-      <header className="print:hidden flex items-center justify-between px-6 py-4 border-b border-color-border">
-        <p className="text-dark-accent text-2xl font-medium tracking-tight">
-          Humble CV Creator
+    <div className="bg-[#eeebe5] font-sans min-h-dvh">
+      <header className="sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex items-center justify-between px-6 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+        <p className="select-none text-xl font-semibold  tracking-widest text-accent">
+          Humble{" "}
+          <span className="bg-accent inline-block transition-transform duration-200 hover:-rotate-6 hover:scale-110 text-[#f8f7f3] px-1.5 py-0.5 rounded-sm tracking-normal">
+            CV
+          </span>{" "}
+          Creator
         </p>
         <div className="flex justify-center gap-2">
           <ActionButton
@@ -39,7 +43,7 @@ function App() {
           />
         </div>
       </header>
-      <main className="flex gap-8 items-start px-6 py-8 min-h-dvh print:block print:p-0 print:bg-white">
+      <main className="flex gap-20 items-start justify-center px-6 py-8 min-h-dvh print:block print:p-0 print:bg-white">
         <FormPanel cvData={cvData} updateSection={updateSection} />
         <PrintedCv cvData={cvData} />
       </main>
@@ -50,4 +54,5 @@ function App() {
 export default App;
 
 // TODO
-// broken date semantics
+
+// make it responsive

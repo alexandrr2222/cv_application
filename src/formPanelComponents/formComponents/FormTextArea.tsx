@@ -17,7 +17,7 @@ export function FormTextArea({
         id={id}
         rows={4}
         {...props}
-        className={`w-full rounded border border-neutral-300 bg-white px-2 py-1.5 text-sm leading-relaxed placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 ${className}`}
+        className={`w-full rounded border border-[#c9bda9] bg-[#fefdf8] px-2 py-1.5 text-sm leading-relaxed text-text placeholder:text-[#a89c88] transition-colors hover:border-[#b0a288] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 ${className}`}
       />
     </FormLabelWrapper>
   );
