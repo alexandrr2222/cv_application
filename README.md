@@ -17,4 +17,5 @@ bun install
 bun run dev
 ```
 
+## Notes
 Built as the React project from The Odin Project, with some extra bits bolted on.
