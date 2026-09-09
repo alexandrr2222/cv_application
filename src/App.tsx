@@ -8,13 +8,14 @@ import { usePersistedState } from "./helperFunction/usePersistedState";
 import { buttonVariants } from "./dataObjects/buttonVariants";
 
 function App() {
-  const [cvData, setCvData] = usePersistedState<cvDataType>("cvData", emptyCv);
+  const [cvData, setCvData] = usePersistedState<cvDataType>("cvData", filledCv);
   function updateSection<K extends keyof cvDataType>(
     key: K,
     value: cvDataType[K],
   ): void {
     setCvData((prev) => ({ ...prev, [key]: value }));
   }
+
   return (
     <div className="bg-[#eeebe5] font-sans h-dvh flex flex-col">
       <header className="shrink-0 sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex flex-wrap items-center justify-center sm:justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
@@ -53,7 +54,3 @@ function App() {
 }
 
 export default App;
-
-// TODO
-
-// make it responsive
