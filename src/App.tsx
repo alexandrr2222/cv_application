@@ -16,8 +16,8 @@ function App() {
     setCvData((prev) => ({ ...prev, [key]: value }));
   }
   return (
-    <div className="bg-[#eeebe5] font-sans min-h-dvh">
-      <header className="sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex flex-wrap items-center justify-center sm:justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+    <div className="bg-[#eeebe5] font-sans h-dvh flex flex-col">
+      <header className="shrink-0 sticky top-0 z-10 print:hidden bg-[#f8f7f3] flex flex-wrap items-center justify-center sm:justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
         <p className="w-full sm:w-auto text-center sm:text-left text-base sm:text-xl font-semibold tracking-wider sm:tracking-widest text-accent">
           {" "}
           Humble{" "}
@@ -44,8 +44,7 @@ function App() {
           />
         </div>
       </header>
-      <main className="flex flex-col xl:gap-12 2xl:gap-20 xl:shrink-0 xl:flex-row items-start justify-center px-4 sm:px-6 py-8 print:block print:p-0">
-        {" "}
+      <main className="flex scrollbar-gutter-stable overflow-y-auto flex-1 flex-col xl:gap-12 2xl:gap-20 xl:shrink-0 xl:flex-row items-start justify-center px-4 sm:px-6 py-8 print:block print:p-0">
         <FormPanel cvData={cvData} updateSection={updateSection} />
         <PrintedCv cvData={cvData} />
       </main>

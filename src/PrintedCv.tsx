@@ -5,7 +5,7 @@ import { SectionHeader } from "./PrintedCvComponents/SectionHeader";
 
 export function PrintedCv({ cvData }: { cvData: cvDataType }) {
   return (
-    <div className="hidden xl:block sticky top-33 self-start print:block! print:static">
+    <div className="hidden xl:block sticky top-14 print:block! print:static">
       <div className="zoom-[0.75] print:zoom-[1]">
         <article className="font-serif w-[210mm] min-h-[297mm] p-[15mm] bg-white text-black shadow-md print:shadow-none print:w-full print:min-h-0 text-sm leading-relaxed space-y-6">
           <header
